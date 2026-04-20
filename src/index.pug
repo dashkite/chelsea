@@ -1,0 +1,38 @@
+extend templates/simple
+
+block append head
+  +googlefont( "Public+Sans", "ital,wght@0,100..900;1,100..900" )
+  +googlefont( "Oxanium", "wght@200..800" )
+  +googlefont( "Crete+Round", "ital@0;1" )
+  +stylesheet( "https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" )
+  +stylesheet( styles )
+  +stylesheet( "/index.css" )
+
+  script( 
+    src = "/index.js" 
+    type = "module"
+  )
+
+  +title( "Chelsea" )
+  +description( "The minimal blogging platform for Central Park" )
+
+block header
+  +logo()
+  nav
+    a( href="/" )
+      i.ri-list-unordered
+      span View Posts
+    a( href="/blog/edit" )
+      i.ri-settings-3-line
+      span Edit Blog
+
+block main
+  //- container for active page
+  #application-shell
+
+append footer
+  #copyright.copy
+    p 
+      | &copy; DashKite, Inc. 2018-2025 
+      br 
+      | All right reserved worldwide

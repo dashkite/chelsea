@@ -1,0 +1,10 @@
+extend ../../templates/shell
+
+block content
+
+  article
+    header( part = "L1" )
+      h1 Edit Post
+      post-actions( data-address = bindings.address )
+
+    post-editor( data-address = bindings.address )

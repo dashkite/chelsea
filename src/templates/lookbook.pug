@@ -1,0 +1,54 @@
+extend ./page
+
+append header
+
+  message-bar
+
+  .themes
+    .primary
+    .secondary
+    .tertiary
+
+block main
+
+  div
+
+    h1 The Brooklyn Lookbook
+
+    nav
+      for section in sections
+        section
+          h2= section.title
+
+          for subsection in section.sections
+            section
+              h3= subsection.title
+
+              for link in subsection.links
+                if link.url
+                  a( 
+                    href = link.url 
+                    class = link.todo ? "todo" : "" )= link.title
+                else
+                  a( 
+                    href = "#" 
+                    class = link.todo ? "todo" : "" 
+                    disabled )= link.title
+
+  div
+    for page of pages
+      .page( data-name = page.name )
+        for view of page.views
+          if view.target == target
+            .active.view( data-target = view.target )
+              block content
+          else
+            .view( data-target = view.target )
+              != view.html
+
+append footer
+  #copyright.copy
+    p 
+      | &copy; DashKite, Inc. 2018-2025 
+      br 
+      | All right reserved worldwide

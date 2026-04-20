@@ -1,0 +1,59 @@
+presets:
+  - "@dashkite/genie-drn"
+  - "@dashkite/genie-atlas"
+  - "@dashkite/genie-sky"
+
+coffee:
+  targets:
+    - browser
+    - node
+
+pug:
+  targets:
+    browser:
+      - preset: js
+        glob:
+          - src/**/*.pug
+          - "!src/index.pug"
+          - "!src/templates/**/*.pug"
+      - preset: html
+        glob: src/index.pug
+        context:
+          styles: drn:import:url/dashkite/posh/build/browser/src/application.css
+
+stylus:
+  targets:
+    browser:
+      - preset: js
+        glob:
+          - "src/**/*.styl"
+          - "!src/index.styl"
+      - preset: css
+        glob: src/index.styl
+
+yaml:
+  targets:
+    browser:
+      - preset: js
+        glob: "src/**/*.yaml"
+    node:
+      - preset: js
+        glob: 
+          - "src/**/*.yaml"
+          - "test/**/*.yaml"
+
+drn:
+  loader:
+    presets:
+      - "@dashkite/drn-sky"
+
+publish:
+  bucket: drn:domain/chelsea/linkables/io
+
+sky:
+  s3: 
+    - domain: drn:domain/chelsea/linkables/io
+      cors: true
+      website:
+        index: index.html
+        error: index.html

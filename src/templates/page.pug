@@ -1,0 +1,19 @@
+include mixins
+
+header
+  block header
+    +logo()
+
+main
+  for p in pages
+    .page( data-name = p.name, class = ( name == p.name ? "active" : "" ) )
+      for v in p.views
+        if v.target == target
+          .active.view( data-target = v.target )
+            block content
+        else
+          .view( data-target = v.target )
+            != v.html
+
+footer
+  block footer

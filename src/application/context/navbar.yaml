@@ -1,0 +1,111 @@
+- title: Components
+  sections:
+
+    - title: Application
+      links:
+
+        - title: Message Bar
+          name: message bar
+          component: message-bar
+
+        - title: Status Indicator
+          name: status indicator
+          component: status-indicator
+
+        - title: Status Bar
+          name: status bar
+          component: status-bar
+
+    - title: Account
+      links:
+
+        - title: Connect Via Email
+          name: connect via email
+          component: email-connector
+
+        - title: Disconnect
+          name: disconnect
+          component: account-disconnect
+          todo: true
+
+        - title: Close
+          name: close account
+          component: account-close
+          todo: true
+
+    - title: Blog
+      links:
+
+        - title: View
+          name: view blog
+          todo: true
+
+        - title: Edit
+          name: edit blog
+          component: blog-editor
+
+    - title: Posts
+      links:
+
+        - title: View
+          name: view posts
+          component: posts-view
+      
+    - title: Post
+      links:
+
+        - title: Summary
+          name:  post summary
+          component: post-summary
+
+        - title: View
+          name:  view post
+          component: post-view
+          todo: true
+
+        - title: Edit
+          name: edit post
+          component: post-editor
+
+        - title: Preview
+          name:  preview post
+          component: post-preview
+
+        - title: Actions
+          name:  post actions
+          component: post-actions
+
+        - title: Remove
+          name: remove post
+          component: post-remove
+          todo: true
+  
+    - title: Metadata
+      links:
+
+        - title: Edit
+          name: edit metadata
+          component: metadata-editor
+
+    - title: Image
+      links:
+
+        - title: Selector
+          name: select image
+          component: image-selector
+          todo: true
+
+        - title: Summary
+          name:  summarize image
+          component: image-summary
+          todo: true
+
+        - title: View
+          name:  view image
+          component: image-view
+          todo: true
+
+        - title: Remove
+          name: remove image
+          component: image-remove
+          todo: true
