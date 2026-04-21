@@ -14,6 +14,6 @@ pages.add "/post/{address}",
   apply: Fn.pipe [
     Application.context
     Kr.page html
-    Kr.success Navigate.to name: "view posts"
+    Kr.success Navigate.to name: "posts view"
     Kr.show
   ]

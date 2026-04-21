@@ -126,6 +126,9 @@ importers:
       '@dashkite/mimic':
         specifier: link:../mimic
         version: link:../mimic
+      chalk:
+        specifier: ^4.1.2
+        version: 4.1.2
       puppeteer:
         specifier: ^24.40.0
         version: 24.41.0

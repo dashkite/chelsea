@@ -1,4 +1,4 @@
 import "./connect"
-import "./view-posts"
-import "./blog-edit"
-import "./post-edit"
+import "./posts"
+import "./blog"
+import "./post"

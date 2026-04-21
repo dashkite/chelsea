@@ -14,7 +14,7 @@ pages.add "/connect",
   apply: Fn.pipe [
     Application.context
     Kr.page html
-    Kr.success Navigate.to name: "view posts"
+    Kr.success Navigate.to name: "posts view"
     Kr.failure -> console.warn "failure!"
     Kr.show
   ]

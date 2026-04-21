@@ -8,7 +8,7 @@ import html from "./html"
 pages = Registry.sync.get "application"
 
 pages.add "/",
-  name: "view posts",
+  name: "posts view",
   apply: Fn.pipe [
     Application.context
     Kr.page html

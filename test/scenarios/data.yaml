@@ -1,0 +1,31 @@
+connecting:
+  connecting (new creator):
+    - connecting (new creator)
+
+  connecting (returning creator):
+    - connecting (returning creator)
+
+managing the blog:
+  editing the blog:
+    - connecting (new creator)
+    - editing the blog
+
+posting:
+  viewing posts:
+    - connecting (new creator)
+    - viewing posts
+
+  creating a post:
+    - connecting (new creator)
+    - creating a post
+
+  writing a post:
+    - connecting (new creator)
+    - creating a post
+    - writing a post
+
+  deleting a post:
+    - connecting (new creator)
+    - creating a post
+    - writing a post
+    - deleting a post
