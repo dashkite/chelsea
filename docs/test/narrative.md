@@ -1,6 +1,6 @@
 # Test Narrative
 
-This narrative outlines the actions supported by the Chelsea Web client to satisfy the [product requirements][].
+This narrative outlines the actions supported by the Chelsea Web client to satisfy the [product requirements][]. This narrative forms the basis for the test [actions][] and [scenarios][].
 
 ## Connecting
 
@@ -114,3 +114,5 @@ The system already contains a profile and a blog address for the provided email.
 [posts view]: #viewing-posts
 [post edit]: #creating-a-post
 [product requirements]: https://github.com/dashkite/central-park/blob/main/.meta/docs/product-requirements.md
+[actions]: ../../test/actions.coffee
+[scenarios]: ../../test/scenarios/data.yaml
