@@ -22,6 +22,7 @@ import * as Stylist from "@dashkite/stylist"
 import { forms } from "@dashkite/posh"
 Stylist.add document, [ forms ]
 
+import loadPages from "./pages"
 import "./theming"
 import messages from "./messages"
 
@@ -37,48 +38,30 @@ Registry.set "messages",
 Registry.set "message bar inbox", Topic.make()
 
 Registry.set "application", Pages.make()
-
-connectedProfile = null
-
-authorized = ( page ) -> 
-  return true if page.url.pathname == "/connect"
-  return true if connectedProfile?
-  
-  email = localStorage.getItem "connection"
-  if email? && email != "null" && email != ""
-    # We must start listening BEFORE resolving to capture the initial value.
-    controller = Controllers.Profile.make()
-    
-    promise = do ->
-      # Safety timeout
-      timeout = setTimeout ( -> throw new Error "Authorized: timeout waiting for profile [ #{email} ]" ), 5000
-      try
-        for await event from controller.listen()
-          if event.name == "value"
-            connectedProfile = event.value.profile
-            return true
-          if event.name == "not found"
-            return false
-      finally
-        clearTimeout timeout
-
-    await controller.resolve profile: bindings: { email }
-    await promise
-  else
-    false
+profile = undefined
+destination = undefined
 
 do ->
-  await import("./pages")
-  Router.run ( page ) ->
-    if page.changed
-      ( authorized page )
-        .then ( ok ) ->
-          if ok
-            # Inject profile into context
-            page.profile = connectedProfile
-            page.data.apply page
-          else
-            navigation.navigate "/connect"
-        .catch ( error ) ->
-          console.error "Authorization failed:", error
-          navigation.navigate "/connect"
+  presence = await Registry.get "presence"
+  application = await Registry.get "application"
+  for await event from presence.subscribe()
+    switch event.name
+      when "connect"
+        profile = event.data
+        application.navigate destination || { name: "posts view" }
+      when "disconnect"
+        profile = undefined
+
+before = ( source ) ->
+  application = await Registry.get "application"
+  for await context from source
+    { data, bindings, url } = context
+    if !( profile? || ( data.public ? false ))
+      destination = { name: data.name, bindings }
+      application.navigate name: "connect"
+    else
+      yield { context..., profile }
+
+do ->
+  await loadPages()
+  Router.run { before }

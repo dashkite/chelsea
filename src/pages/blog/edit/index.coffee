@@ -5,7 +5,7 @@ import Kr from "@dashkite/krypton"
 import Application from "#application/context"
 import html from "./html"
 
-pages = Registry.sync.get "application"
+pages = await Registry.get "application"
 
 pages.add "/blog/edit",
   name: "blog edit",

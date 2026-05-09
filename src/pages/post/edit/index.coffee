@@ -6,7 +6,7 @@ import Application from "#application/context"
 import Navigate from "#helpers/navigation"
 import html from "./html"
 
-pages = Registry.sync.get "application"
+pages = await Registry.get "application"
 
 pages.add "/post/{address}",
   name: "post edit",

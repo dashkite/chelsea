@@ -23,7 +23,7 @@ Application =
                   link.url = application.link { name: link.name, bindings }
                 catch error
                   # console.warn "Context: unable to generate link for [ #{link.name} ]", error.message
-                  pass
+                  continue
         _navbar
 
 export default Application

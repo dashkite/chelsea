@@ -61,7 +61,7 @@
     "@dashkite/belmont": "link:../belmont",
     "@dashkite/broadway": "link:../broadway",
     "@dashkite/brooklyn": "link:../brooklyn",
-    "@dashkite/cordoba": "^0.10.16",
+    "@dashkite/cordoba": "link:../cordoba",
     "@dashkite/domo": "^0.2.20",
     "@dashkite/drn-sky": "^0.8.17",
     "@dashkite/halstead": "link:../halstead",
